@@ -1,5 +1,12 @@
 (() => {
-  import('./hero-image.js?v=20260804a');
+  const heroImage = document.querySelector('.hero-editorial-image');
+  if (heroImage) heroImage.style.opacity = '0';
+  import('./hero-image.js?v=20260804a').then(() => {
+    if (!heroImage) return;
+    const showImage = () => { heroImage.style.opacity = '1'; };
+    heroImage.addEventListener('load', showImage, { once: true });
+    if (heroImage.complete && heroImage.naturalWidth) showImage();
+  });
 
   const menuButton = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.main-nav');
