@@ -1,5 +1,5 @@
 (() => {
-  import('./hero-image.js?v=20260804e').catch(() => {});
+  import('./hero-image.js?v=20260804f').catch(() => {});
 
   const menuButton = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.main-nav');
