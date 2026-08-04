@@ -1,4 +1,6 @@
 (() => {
+  import('./hero-image.js?v=20260804a');
+
   const menuButton = document.querySelector('.menu-toggle');
   const menu = document.querySelector('.main-nav');
 
