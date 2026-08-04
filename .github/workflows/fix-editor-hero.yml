@@ -1,0 +1,218 @@
+name: Corrigir imagem do Editor Saymon
+
+on:
+  push:
+    paths:
+      - 'editor-saymon-cesar/.hero-fix-trigger'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-hero:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Corrigir imagens e HTML
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          from io import BytesIO
+          import base64
+          import re
+
+          root = Path('editor-saymon-cesar')
+
+          def decode_possible_base64(raw: bytes) -> bytes:
+              stripped = b''.join(raw.split())
+              if not stripped:
+                  return raw
+              signatures = (b'UklGR', b'iVBOR', b'/9j/')
+              if stripped.startswith(signatures):
+                  try:
+                      return base64.b64decode(stripped, validate=True)
+                  except Exception:
+                      pass
+              return raw
+
+          def image_from_bytes(data: bytes):
+              try:
+                  image = Image.open(BytesIO(data))
+                  image.load()
+                  return image
+              except Exception:
+                  return None
+
+          source = None
+          candidates = [
+              root / 'hero-editorial-v2.webp',
+              root / 'hero-editorial.webp',
+              root / 'hero-editorial-mobile.webp',
+              root / 'hero-editorial-mobile.jpg',
+              root / 'hero-editorial-desktop.jpg',
+          ]
+
+          for candidate in candidates:
+              if not candidate.exists():
+                  continue
+              raw = candidate.read_bytes()
+              for payload in (raw, decode_possible_base64(raw)):
+                  image = image_from_bytes(payload)
+                  if image is not None:
+                      source = image
+                      print(f'Imagem válida encontrada em {candidate}')
+                      break
+              if source is not None:
+                  break
+
+          if source is None:
+              parts = sorted((root / 'hero-mobile').glob('part*.txt'))
+              if parts:
+                  joined = ''.join(p.read_text(encoding='utf-8') for p in parts)
+                  payload = base64.b64decode(''.join(joined.split()))
+                  source = image_from_bytes(payload)
+                  if source is not None:
+                      print('Imagem válida reconstruída dos blocos hero-mobile')
+
+          if source is None:
+              svg_path = root / 'hero-editorial-mobile.svg'
+              if svg_path.exists():
+                  svg = svg_path.read_text(encoding='utf-8', errors='ignore')
+                  match = re.search(r'data:image/(?:png|jpe?g|webp);base64,([^"\']+)', svg, re.I)
+                  if match:
+                      payload = base64.b64decode(''.join(match.group(1).split()))
+                      source = image_from_bytes(payload)
+
+          if source is None:
+              raise SystemExit('Nenhuma imagem fotográfica válida foi encontrada no repositório.')
+
+          source = source.convert('RGB')
+          desktop = ImageOps.fit(source, (1600, 1200), method=Image.Resampling.LANCZOS, centering=(0.5, 0.5))
+          mobile = ImageOps.fit(source, (1200, 1500), method=Image.Resampling.LANCZOS, centering=(0.5, 0.56))
+
+          desktop_path = root / 'hero-editorial-desktop.jpg'
+          mobile_path = root / 'hero-editorial-mobile.jpg'
+          desktop.save(desktop_path, 'JPEG', quality=91, optimize=True, progressive=True, subsampling=0)
+          mobile.save(mobile_path, 'JPEG', quality=91, optimize=True, progressive=True, subsampling=0)
+
+          for output in (desktop_path, mobile_path):
+              check = Image.open(output)
+              check.load()
+              print(f'{output}: {check.size}, {output.stat().st_size} bytes')
+
+          index_path = root / 'index.html'
+          html = index_path.read_text(encoding='utf-8')
+          replacement = '''<figure class="hero-editorial-frame reveal">
+          <picture>
+            <source media="(max-width: 700px)" srcset="hero-editorial-mobile.jpg?v=20260804k">
+            <img class="hero-editorial-image" src="hero-editorial-desktop.jpg?v=20260804k" alt="Livro aberto sobre uma mesa de trabalho editorial, acompanhado de caneta e outros volumes" width="1600" height="1200" fetchpriority="high" decoding="async" loading="eager">
+          </picture>
+        </figure>'''
+          html, count = re.subn(
+              r'<figure class="hero-editorial-frame reveal">.*?</figure>',
+              replacement,
+              html,
+              count=1,
+              flags=re.S,
+          )
+          if count != 1:
+              raise SystemExit('Não foi possível localizar o bloco da imagem no index.html.')
+
+          html = re.sub(r'site-v2\.css\?v=[^"\']+', 'site-v2.css?v=20260804k', html)
+          html = re.sub(r'script\.js\?v=[^"\']+', 'script.js?v=20260804k', html)
+          index_path.write_text(html, encoding='utf-8')
+
+          css_path = root / 'site-v2.css'
+          css = css_path.read_text(encoding='utf-8')
+          marker = '/* HERO FOTOGRAFICO DEFINITIVO */'
+          if marker in css:
+              css = css.split(marker)[0].rstrip() + '\n'
+          css += r'''
+
+          /* HERO FOTOGRAFICO DEFINITIVO */
+          .hero-editorial-frame {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            border: 1px solid rgba(216,181,106,.34);
+            border-radius: 24px;
+            background: #0b0907 !important;
+            box-shadow: 0 32px 70px rgba(0,0,0,.48);
+          }
+          .hero-editorial-frame picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
+          .hero-editorial-frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(135deg,rgba(216,181,106,.08),transparent 42%,rgba(0,0,0,.12));
+          }
+          .hero-editorial-image {
+            position: relative;
+            z-index: 1;
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            object-fit: cover !important;
+            object-position: center !important;
+          }
+          @media (max-width: 700px) {
+            .hero-editorial-frame {
+              width: min(100%,560px);
+              aspect-ratio: 4 / 5;
+              margin-inline: auto;
+              border-radius: 20px;
+            }
+            .hero-editorial-image {
+              object-position: center 56% !important;
+            }
+          }
+          '''
+          css_path.write_text(css, encoding='utf-8')
+
+          script_path = root / 'script.js'
+          if script_path.exists():
+              script = script_path.read_text(encoding='utf-8')
+              script = re.sub(r"\s*import\(['\"]\./hero-image\.js[^)]*\)\.catch\(\(\) => \{\}\);?", '', script, count=1)
+              script = re.sub(r"\s*import\(['\"]\./hero-image\.js[^)]*\);?", '', script, count=1)
+              script_path.write_text(script, encoding='utf-8')
+          PY
+
+      - name: Publicar correção
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add editor-saymon-cesar/index.html \
+                  editor-saymon-cesar/site-v2.css \
+                  editor-saymon-cesar/script.js \
+                  editor-saymon-cesar/hero-editorial-desktop.jpg \
+                  editor-saymon-cesar/hero-editorial-mobile.jpg
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração necessária."
+          else
+            git commit -m "Corrige definitivamente a imagem editorial responsiva"
+            git push
+          fi
