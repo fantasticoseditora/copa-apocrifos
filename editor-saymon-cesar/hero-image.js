@@ -3,41 +3,55 @@
   const frame = image?.closest('.hero-editorial-frame');
   if (!image || !frame) return;
 
-  const mobileSource = 'hero-editorial-mobile.svg?v=20260804f';
-  const desktopSource = 'hero-editorial.webp?v=20260804f';
-  const mobileQuery = window.matchMedia('(max-width: 700px)');
+  const version = '20260804h';
+  const rawBase = 'https://raw.githubusercontent.com/fantasticoseditora/copa-apocrifos/main/editor-saymon-cesar/.hero-build';
+  const parts = [
+    `${rawBase}/mobile-01.txt?v=${version}`,
+    `${rawBase}/mobile-02.txt?v=${version}`,
+    `${rawBase}/mobile-03.txt?v=${version}`,
+    `${rawBase}/mobile-04.txt?v=${version}`
+  ];
 
-  function useMobileArtwork() {
-    image.hidden = true;
-    image.setAttribute('aria-hidden', 'true');
-    frame.style.backgroundImage = `url("${mobileSource}")`;
-    frame.style.backgroundPosition = 'center';
-    frame.style.backgroundRepeat = 'no-repeat';
-    frame.style.backgroundSize = 'cover';
+  frame.style.backgroundImage = 'none';
+  frame.style.backgroundColor = '#0b0907';
+  image.hidden = true;
+  image.alt = '';
+  image.removeAttribute('src');
+  image.style.opacity = '0';
+  image.style.width = '100%';
+  image.style.height = '100%';
+  image.style.objectFit = 'cover';
+  image.style.objectPosition = 'center';
+
+  function revealPhoto(source) {
+    image.onload = () => {
+      image.hidden = false;
+      image.style.opacity = '1';
+      image.alt = 'Livro aberto com caneta-tinteiro em uma biblioteca';
+      frame.style.backgroundImage = 'none';
+    };
+    image.onerror = () => {
+      image.hidden = true;
+      image.alt = '';
+      frame.style.backgroundImage = 'none';
+    };
+    image.src = source;
   }
 
-  function useDesktopArtwork() {
-    image.hidden = false;
-    image.removeAttribute('aria-hidden');
-    frame.style.backgroundImage = `url("${desktopSource}")`;
-    frame.style.backgroundPosition = 'center';
-    frame.style.backgroundRepeat = 'no-repeat';
-    frame.style.backgroundSize = 'cover';
-    image.src = desktopSource;
-  }
-
-  function applyResponsiveArtwork() {
-    if (mobileQuery.matches) useMobileArtwork();
-    else useDesktopArtwork();
-  }
-
-  image.decoding = 'async';
-  image.addEventListener('error', useMobileArtwork);
-  applyResponsiveArtwork();
-
-  if (typeof mobileQuery.addEventListener === 'function') {
-    mobileQuery.addEventListener('change', applyResponsiveArtwork);
-  } else {
-    mobileQuery.addListener(applyResponsiveArtwork);
-  }
+  Promise.all(
+    parts.map(async (url) => {
+      const response = await fetch(url, { cache: 'force-cache' });
+      if (!response.ok) throw new Error(`Falha ao carregar ${url}`);
+      return response.text();
+    })
+  )
+    .then((chunks) => {
+      const base64 = chunks.join('').replace(/\s+/g, '');
+      if (!base64.startsWith('UklG')) throw new Error('Dados da imagem inválidos');
+      revealPhoto(`data:image/webp;base64,${base64}`);
+    })
+    .catch((error) => {
+      console.error('Falha ao carregar a fotografia editorial.', error);
+      revealPhoto(`hero-editorial.webp?v=${version}`);
+    });
 })();
