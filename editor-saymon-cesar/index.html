@@ -13,36 +13,251 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d0c0a'/%3E%3Cpath d='M45 17c-3-5-8-8-14-8-9 0-16 6-16 14 0 7 5 11 13 13l7 2c4 1 6 3 6 6 0 4-4 7-9 7-6 0-10-3-13-8' fill='none' stroke='%23d8b56a' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site-v2.css?v=20260804a">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Saymon César — Assessoria Editorial","url":"https://fantasticoseditora.github.io/copa-apocrifos/editor-saymon-cesar/","email":"mailto:saymoncesar@gmail.com","telephone":"+55 47 99795-5722","areaServed":"BR","description":"Assessoria editorial para autores de ficção e não ficção, da avaliação do original à publicação e divulgação.","founder":{"@type":"Person","name":"Saymon César","jobTitle":"Editor","description":"Editor-chefe da Editora Fantásticos, autor de A Lenda de Materyalis e ghostwriter de mais de 20 livros."}}</script>
 </head>
 <body>
   <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
   <header class="site-header" id="inicio">
     <div class="container nav">
-      <a class="brand" href="#inicio" aria-label="Saymon César Editor — início"><svg viewBox="0 0 76 66" aria-hidden="true"><path d="M51 13c-4-6-10-9-18-9C22 4 14 11 14 21c0 9 6 14 16 17l9 3c5 2 8 4 8 8 0 6-5 10-13 10-8 0-14-4-18-11"/><path d="M58 12c-6-5-12-7-19-7M56 53c-5 6-12 9-21 9"/></svg><span><strong>Saymon César</strong><small>EDITOR</small></span></a>
+      <a class="brand" href="#inicio" aria-label="Saymon César Editor — início">
+        <svg viewBox="0 0 76 66" aria-hidden="true"><path d="M51 13c-4-6-10-9-18-9C22 4 14 11 14 21c0 9 6 14 16 17l9 3c5 2 8 4 8 8 0 6-5 10-13 10-8 0-14-4-18-11"/><path d="M58 12c-6-5-12-7-19-7M56 53c-5 6-12 9-21 9"/></svg>
+        <span><strong>Saymon César</strong><small>EDITOR</small></span>
+      </a>
       <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
-      <nav class="main-nav" id="menu" aria-label="Navegação principal"><a href="#avaliacao">Avaliação</a><a href="#servicos">Serviços</a><a href="#publicos">Para quem</a><a href="#sobre">Sobre mim</a><a href="#perguntas">Perguntas</a></nav>
-      <a class="button button-small button-outline header-cta" href="https://wa.me/5547997955722?text=Ol%C3%A1%2C%20Saymon.%20Quero%20conversar%20sobre%20a%20publica%C3%A7%C3%A3o%20do%20meu%20livro." target="_blank" rel="noopener">WhatsApp</a>
+      <nav class="main-nav" id="menu" aria-label="Navegação principal">
+        <a href="#avaliacao">Avaliação</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#publicos">Para quem</a>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#perguntas">Perguntas</a>
+      </nav>
     </div>
   </header>
+
   <main id="conteudo">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="reveal"><p class="eyebrow">Assessoria editorial para autores de ficção e não ficção</p><h1>Quer publicar<br><em>o seu livro?</em></h1><p class="hero-lead">Eu avalio o estágio da sua obra, mostro o que precisa ser desenvolvido e acompanho as etapas necessárias para transformá-la em um livro publicado, lido e apreciado pelo público-alvo.</p><div class="actions"><a class="button button-gold" href="#formulario">Quero publicar meu livro</a><a class="button button-outline" href="https://wa.me/5547997955722?text=Ol%C3%A1%2C%20Saymon.%20Quero%20conversar%20sobre%20a%20publica%C3%A7%C3%A3o%20do%20meu%20livro." target="_blank" rel="noopener">Falar no WhatsApp</a></div><p class="micro">Comece com uma avaliação editorial inicial do seu projeto.</p></div>
-        <div class="hero-art reveal" aria-label="Ilustração de livros e manuscrito"><div class="glow"></div><div class="stack stack-back"><span></span><span></span><span></span></div><div class="stack stack-side"><span></span><span></span></div><div class="open-book" aria-hidden="true"><div class="page left"><i></i><i></i><i></i><i></i><i></i></div><div class="page right"><i></i><i></i><i></i><i></i><i></i></div><div class="spine"></div></div><div class="pen"></div><div class="quote">Uma história bem preparada pode conquistar leitores, gerar indicações e criar retorno para o autor.</div></div>
+        <div class="reveal">
+          <p class="eyebrow">Assessoria editorial para autores de ficção e não ficção</p>
+          <h1>Quer publicar <em>o seu livro?</em></h1>
+          <p class="hero-lead">Eu avalio o estágio da sua obra, mostro o que precisa ser desenvolvido e acompanho as etapas necessárias para transformá-la em um livro publicado, lido e apreciado pelo público-alvo.</p>
+          <div class="actions">
+            <a class="button button-gold cta-form" href="formulario.html" target="_blank" rel="noopener">Quero uma análise para publicar o meu livro</a>
+          </div>
+          <p class="micro">Comece com uma avaliação editorial inicial do seu projeto.</p>
+        </div>
+        <figure class="hero-editorial-frame reveal">
+          <img class="hero-editorial-image" src="hero-editorial-v2.webp" alt="Livro aberto sobre uma mesa, acompanhado de caneta-tinteiro e outros volumes" width="1200" height="900" fetchpriority="high">
+        </figure>
       </div>
     </section>
-    <section class="problem section-light"><div class="container narrow reveal"><div class="heading center"><span class="kicker">Antes de publicar</span><h2>Seu original está realmente pronto para ser lido e apreciado pelo público?</h2><p>Publicar não é apenas colocar um arquivo em uma plataforma. É tomar decisões editoriais na ordem certa para que o livro tenha qualidade, coerência visual, boa experiência de leitura e condições reais de alcançar o público-alvo.</p></div><div class="specifics"><article><span class="icon">✦</span><h3>Texto e experiência de leitura</h3><p>O original precisa de desenvolvimento, preparação, revisão ortográfica e gramatical ou já está pronto para seguir?</p></article><article><span class="icon">◫</span><h3>Capa e projeto gráfico</h3><p>A capa comunica gênero e público? A diagramação funciona no impresso e no digital? O projeto visual valoriza a obra?</p></article><article><span class="icon">§</span><h3>Registros e publicação</h3><p>Onde registrar a obra? Ela precisa de ISBN, ficha catalográfica e arquivos específicos para Amazon, UICLAP ou outras plataformas?</p></article><article><span class="icon">↗</span><h3>Divulgação e vendas</h3><p>Como posicionar o livro, apresentar sua proposta, formar leitores, organizar o lançamento e ampliar as oportunidades de venda?</p></article></div></div></section>
-    <section class="assessment" id="avaliacao"><div class="container"><div class="heading center reveal"><span class="kicker">O primeiro passo</span><h2>Avaliação editorial inicial</h2><p>Você responde algumas perguntas sobre a obra e envia o primeiro capítulo. Assim, eu identifico o estágio real do projeto e indico o caminho mais adequado para publicação, melhoria ou relançamento.</p></div><div class="flow reveal"><article><span>1</span><h3>Responde ao formulário</h3><p>Informa gênero, estágio, capa, revisão, diagramação, registros, publicação anterior e objetivo.</p></article><article><span>2</span><h3>Envia o primeiro capítulo</h3><p>A leitura observa abertura, clareza, ritmo, linguagem, estrutura, imersão e adequação ao público.</p></article><article><span>3</span><h3>Recebe um relatório editorial</h3><p>O documento apresenta forças, fragilidades, prioridades de melhoria e decisões necessárias.</p></article><article><span>4</span><h3>Entende os próximos passos</h3><p>Você sabe quais serviços são necessários, em que ordem avançar e como preparar a obra para o mercado.</p></article></div><div class="result reveal"><div><span class="kicker">Ao final, você saberá</span><h3>O que falta para o seu livro avançar com qualidade.</h3></div><ul class="check"><li>Se o texto está pronto ou precisa ser desenvolvido e fortalecido.</li><li>Se capa, revisão e diagramação estão adequadas ao público e às plataformas.</li><li>Quais registros, formatos e canais de publicação fazem sentido.</li><li>Como posicionar, apresentar e divulgar a obra de forma mais estratégica.</li><li>Qual é o caminho editorial e comercial mais coerente para o projeto.</li></ul><a class="button" href="#formulario">Solicitar avaliação</a></div></div></section>
-    <section class="audience section-light" id="publicos"><div class="container"><div class="heading center reveal"><span class="kicker">Para quem este serviço é indicado</span><h2>Para autores em diferentes momentos da jornada</h2><p>A avaliação e a assessoria são adaptadas ao estágio real da obra, sem fazer você contratar etapas que já foram concluídas.</p></div><div class="stages reveal"><article><span>01</span><h3>Livro em andamento</h3><p>Para quem já começou a escrever e precisa de orientação para desenvolver o original com mais clareza, estrutura e força narrativa.</p></article><article><span>02</span><h3>Original pronto para publicar</h3><p>Para quem concluiu o texto e precisa organizar revisão, capa, diagramação, registros, arquivos e disponibilização nas plataformas.</p></article><article><span>03</span><h3>Livro já publicado</h3><p>Para quem quer revisar a obra, melhorar capa ou projeto gráfico, reposicionar o livro e estruturar divulgação e vendas.</p></article></div><div class="genres reveal"><div><h3>Ficção</h3><ul class="dotlist"><li>Fantasia</li><li>Ficção científica</li><li>Terror</li><li>Suspense</li><li>Romance</li><li>Contos e novelas</li><li>Drama e ficção contemporânea</li></ul></div><div><h3>Não ficção</h3><ul class="dotlist"><li>Espiritualidade</li><li>Desenvolvimento pessoal</li><li>Biografia e memórias</li><li>Negócios</li><li>Educação</li><li>Liderança</li><li>Conhecimento profissional</li></ul></div></div><p class="scope reveal">Este serviço é voltado a obras para o público adulto. Não trabalho com literatura infantil nesta modalidade.</p></div></section>
-    <section class="services section-paper" id="servicos"><div class="container"><div class="heading center reveal"><span class="kicker">Da avaliação à publicação</span><h2>Você pode contratar só o que precisa ou contar com uma assessoria completa</h2><p>Eu reúno as etapas editoriais, técnicas e comerciais necessárias para preparar, publicar e posicionar o livro com coerência.</p></div><div class="service-grid reveal"><article><span>✎</span><h3>Desenvolvimento do original</h3><p>Leitura editorial, análise crítica, estrutura, enredo, personagens, clareza e acompanhamento da escrita.</p></article><article><span>✓</span><h3>Revisão ortográfica e gramatical</h3><p>Correção com atenção à norma, fluidez, consistência e preservação da voz do autor.</p></article><article><span>©</span><h3>Registros editoriais</h3><p>Orientação e suporte com direitos autorais, ISBN, ficha catalográfica e demais necessidades.</p></article><article><span>◩</span><h3>Capa profissional</h3><p>Projeto visual alinhado ao gênero, ao posicionamento, ao público e às plataformas.</p></article><article><span>▦</span><h3>Projeto gráfico e diagramação</h3><p>Preparação do miolo para leitura confortável e profissional em formato impresso e digital.</p></article><article><span>⇩</span><h3>Arquivos para publicação</h3><p>Preparação técnica dos formatos necessários para e-book, impressão sob demanda e distribuição.</p></article><article><span>◎</span><h3>Amazon e UICLAP</h3><p>Configuração e disponibilização do livro em formato digital e físico nas plataformas escolhidas.</p></article><article><span>↗</span><h3>Posicionamento, divulgação e vendas</h3><p>Plano estruturado para apresentar a obra, formar leitores, organizar lançamento, gerar indicações e buscar retorno.</p></article></div></div></section>
-    <section class="about" id="sobre"><div class="container about-grid"><div class="portrait reveal"><img id="portrait-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 750'%3E%3Crect width='600' height='750' fill='%23110f0c'/%3E%3C/svg%3E" alt="Retrato profissional de Saymon César" width="720" height="900" loading="lazy"><div class="portrait-caption">Editor, autor e ghostwriter</div></div><div class="reveal"><span class="kicker">Quem é Saymon César?</span><h2>Experiência editorial e vivência de autor no mesmo projeto</h2><p>Sou editor-chefe da Editora Fantásticos, atuo há sete anos no mercado editorial, escrevi mais de vinte livros como ghostwriter e sou autor de <strong>A Lenda de Materyalis</strong>.</p><p>Além de conhecer os processos técnicos de preparação e publicação, eu entendo o que significa desenvolver uma obra, preservar a identidade do autor e pensar na experiência que o texto precisa criar no leitor.</p><p>Meu objetivo é ajudar autores a publicar livros com qualidade de imersão, capazes de ser lidos, apreciados, indicados e valorizados pelo público-alvo — em escala cada vez maior, com um trabalho editorial que também considere divulgação, vendas e retorno para o autor.</p><div class="credentials"><div><strong>7 anos</strong><span>de experiência editorial</span></div><div><strong>20+</strong><span>livros escritos como ghostwriter</span></div><div><strong>Autor</strong><span>de A Lenda de Materyalis</span></div><div><strong>Editor-chefe</strong><span>da Editora Fantásticos</span></div></div></div></div></section>
-    <section class="form-section section-light" id="formulario"><div class="container form-grid"><div class="form-intro reveal"><span class="kicker">Comece agora</span><h2>Conte em que estágio está o seu livro</h2><p>As respostas abaixo me ajudam a entender o projeto antes da leitura do primeiro capítulo. Ao enviar, o WhatsApp será aberto com as informações organizadas. Depois, basta anexar o capítulo na conversa.</p><div class="contact"><span>E-mail</span><a href="mailto:saymoncesar@gmail.com">saymoncesar@gmail.com</a><span>WhatsApp</span><a href="https://wa.me/5547997955722" target="_blank" rel="noopener">(47) 99795-5722</a></div></div><form class="lead-form reveal" id="editorial-form"><div class="row"><label>Seu nome<input name="nome" type="text" autocomplete="name" required></label><label>WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" required></label></div><div class="row"><label>E-mail<input name="email" type="email" autocomplete="email" required></label><label>Título da obra<input name="titulo" type="text" required></label></div><div class="row"><label>Tipo de obra<select name="tipo" required><option value="">Selecione</option><option>Ficção</option><option>Não ficção</option></select></label><label>Gênero<input name="genero" type="text" placeholder="Ex.: fantasia, romance, biografia..." required></label></div><label>Em que estágio o livro está?<select name="estagio" required><option value="">Selecione</option><option>Em andamento</option><option>Original concluído, ainda não publicado</option><option>Pronto para publicação</option><option>Já publicado e precisa de melhorias</option></select></label><div class="row triple"><label>Já tem capa?<select name="capa"><option>Não</option><option>Sim</option><option>Em produção</option></select></label><label>Já foi revisado?<select name="revisao"><option>Não</option><option>Sim</option><option>Parcialmente</option></select></label><label>Já foi diagramado?<select name="diagramacao"><option>Não</option><option>Sim</option><option>Parcialmente</option></select></label></div><div class="row"><label>Registros já realizados<input name="registros" type="text" placeholder="Ex.: direitos autorais, ISBN, nenhum..."></label><label>Já foi publicado? Onde?<input name="publicacao" type="text" placeholder="Ex.: Amazon, UICLAP, ainda não..."></label></div><label>O que você mais precisa neste momento?<textarea name="objetivo" rows="4" placeholder="Conte brevemente o que deseja resolver, melhorar ou alcançar com a obra." required></textarea></label><label class="consent"><input type="checkbox" required> Autorizo o contato para tratar desta solicitação editorial.</label><div class="form-actions"><button class="button button-gold" type="submit">Enviar respostas pelo WhatsApp</button><button class="text-button" type="button" id="email-submit">Prefiro enviar por e-mail</button></div><p class="form-note">O capítulo não é anexado automaticamente. Depois de enviar as respostas, anexe o arquivo na conversa ou no e-mail aberto.</p></form></div></section>
-    <section class="faq section-paper" id="perguntas"><div class="container narrow"><div class="heading center reveal"><span class="kicker">Perguntas frequentes</span><h2>O que você precisa saber antes de começar</h2></div><div class="faq-list reveal"><details><summary>Preciso ter terminado o livro?</summary><p>Não. Posso avaliar um projeto em andamento, um original concluído ou uma obra já publicada. A recomendação muda conforme o estágio e o objetivo.</p></details><details><summary>A avaliação editorial é uma análise completa do livro?</summary><p>A avaliação inicial considera o formulário e o primeiro capítulo para mapear o estágio da obra e orientar os próximos passos. Uma análise integral, quando necessária, é proposta separadamente.</p></details><details><summary>Preciso contratar todos os serviços?</summary><p>Não. A avaliação identifica o que já está resolvido e o que ainda precisa ser feito. Você pode contratar etapas específicas ou uma assessoria completa.</p></details><details><summary>O livro será publicado pela Editora Fantásticos?</summary><p>Este serviço é uma assessoria para publicação independente. A obra é preparada e publicada em nome do autor nas plataformas definidas para o projeto.</p></details><details><summary>Você atende qualquer gênero?</summary><p>Atendo diferentes gêneros de ficção e não ficção voltados ao público adulto. Literatura infantil não faz parte desta modalidade.</p></details><details><summary>Como recebo o orçamento?</summary><p>Depois de conhecer o estágio da obra e os serviços necessários, preparo uma proposta coerente com o projeto, sem incluir etapas que já estejam concluídas.</p></details></div></div></section>
-    <section class="final"><div class="container final-grid reveal"><div><span class="kicker">Assessoria editorial em um só lugar</span><h2>Tudo o que o seu livro precisa para ser publicado, lido e apreciado pelo público.</h2><p>Avaliação editorial, orientação sobre o estágio da obra, produção, publicação, posicionamento, divulgação e vendas — organizados de acordo com o que o seu projeto realmente necessita.</p></div><div class="final-actions"><a class="button button-dark" href="#formulario">Quero publicar meu livro</a><a class="button button-ghost" href="https://wa.me/5547997955722?text=Ol%C3%A1%2C%20Saymon.%20Quero%20conversar%20sobre%20a%20publica%C3%A7%C3%A3o%20do%20meu%20livro." target="_blank" rel="noopener">Falar no WhatsApp</a></div></div></section>
+
+    <section class="problem section-light">
+      <div class="container narrow reveal">
+        <div class="heading center">
+          <span class="kicker">Antes de publicar</span>
+          <h2>Seu original está realmente pronto para ser lido e apreciado pelo público?</h2>
+          <p>Publicar não é apenas colocar um arquivo em uma plataforma. É tomar decisões editoriais na ordem certa para que o livro tenha qualidade, coerência visual, boa experiência de leitura e condições reais de alcançar o público-alvo.</p>
+        </div>
+        <div class="specifics">
+          <article><span class="icon">✦</span><h3>Texto e experiência de leitura</h3><p>O original precisa de desenvolvimento, preparação, revisão ortográfica e gramatical ou já está pronto para seguir?</p></article>
+          <article><span class="icon">◫</span><h3>Capa e projeto gráfico</h3><p>A capa comunica gênero e público? A diagramação funciona no impresso e no digital? O projeto visual valoriza a obra?</p></article>
+          <article><span class="icon">§</span><h3>Registros e publicação</h3><p>Onde registrar a obra? Ela precisa de ISBN, ficha catalográfica e arquivos específicos para Amazon, UICLAP ou outras plataformas?</p></article>
+          <article><span class="icon">↗</span><h3>Divulgação e vendas</h3><p>Como posicionar o livro, apresentar sua proposta, formar leitores, organizar o lançamento e ampliar as oportunidades de venda?</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="assessment" id="avaliacao">
+      <div class="container">
+        <div class="heading center reveal">
+          <span class="kicker">O primeiro passo</span>
+          <h2>Avaliação editorial inicial</h2>
+          <p>Você responde algumas perguntas sobre a obra e envia o primeiro capítulo. Assim, eu identifico o estágio real do projeto e indico o caminho mais adequado para publicação, melhoria ou relançamento.</p>
+        </div>
+        <div class="flow reveal">
+          <article><span>1</span><h3>Responda ao formulário</h3><p>Informe gênero, estágio, serviços já realizados, publicação anterior e objetivo.</p></article>
+          <article><span>2</span><h3>Envie o primeiro capítulo</h3><p>A leitura observa abertura, clareza, ritmo, linguagem, estrutura, imersão e adequação ao público.</p></article>
+          <article><span>3</span><h3>Receba um relatório editorial</h3><p>O documento apresenta forças, fragilidades, prioridades de melhoria e decisões necessárias.</p></article>
+          <article><span>4</span><h3>Entenda os próximos passos</h3><p>Você saberá quais serviços são necessários, em que ordem avançar e como preparar a obra para o mercado.</p></article>
+        </div>
+        <div class="result reveal">
+          <div><span class="kicker">Ao final, você saberá</span><h3>O que falta para o seu livro avançar com qualidade.</h3></div>
+          <ul class="check">
+            <li>Se o texto está pronto ou precisa ser desenvolvido e fortalecido.</li>
+            <li>Se capa, revisão e diagramação estão adequadas ao público e às plataformas.</li>
+            <li>Quais registros, formatos e canais de publicação fazem sentido.</li>
+            <li>Como posicionar, apresentar e divulgar a obra de forma mais estratégica.</li>
+            <li>Qual é o caminho editorial e comercial mais coerente para o projeto.</li>
+          </ul>
+          <a class="button cta-form" href="formulario.html" target="_blank" rel="noopener">Quero uma análise para publicar o meu livro</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="audience section-light" id="publicos">
+      <div class="container">
+        <div class="heading center reveal">
+          <span class="kicker">Para quem este serviço é indicado</span>
+          <h2>Para autores em diferentes momentos da jornada</h2>
+          <p>A avaliação e a assessoria são adaptadas ao estágio real da obra, sem fazer você contratar etapas que já foram concluídas.</p>
+        </div>
+        <div class="stages reveal">
+          <article><span>01</span><h3>Livro em andamento</h3><p>Para quem já começou a escrever e precisa de orientação para desenvolver o original com mais clareza, estrutura e força narrativa.</p></article>
+          <article><span>02</span><h3>Original pronto para publicar</h3><p>Para quem concluiu o texto e precisa organizar revisão, capa, diagramação, registros, arquivos e disponibilização nas plataformas.</p></article>
+          <article><span>03</span><h3>Livro já publicado</h3><p>Para quem quer revisar a obra, melhorar capa ou projeto gráfico, reposicionar o livro e estruturar divulgação e vendas.</p></article>
+        </div>
+        <div class="genres reveal">
+          <div><h3>Ficção</h3><ul class="dotlist"><li>Fantasia</li><li>Ficção científica</li><li>Terror</li><li>Suspense</li><li>Romance</li><li>Contos e novelas</li><li>Drama e ficção contemporânea</li></ul></div>
+          <div><h3>Não ficção</h3><ul class="dotlist"><li>Espiritualidade</li><li>Desenvolvimento pessoal</li><li>Biografia e memórias</li><li>Negócios</li><li>Educação</li><li>Liderança</li><li>Conhecimento profissional</li></ul></div>
+        </div>
+        <p class="scope reveal">Este serviço é voltado a obras para o público adulto. Não trabalho com literatura infantil nesta modalidade.</p>
+      </div>
+    </section>
+
+    <section class="services section-paper" id="servicos">
+      <div class="container">
+        <div class="heading center reveal">
+          <span class="kicker">Da avaliação à publicação</span>
+          <h2>Você pode contratar só o que precisa ou contar com uma assessoria completa</h2>
+          <p>Eu reúno as etapas editoriais, técnicas e comerciais necessárias para preparar, publicar e posicionar o livro com coerência.</p>
+        </div>
+        <div class="service-grid reveal">
+          <article><span>✎</span><h3>Desenvolvimento do original</h3><p>Leitura editorial, análise crítica, estrutura, enredo, personagens, clareza e acompanhamento da escrita.</p></article>
+          <article><span>✓</span><h3>Revisão ortográfica e gramatical</h3><p>Correção com atenção à norma, fluidez, consistência e preservação da voz do autor.</p></article>
+          <article><span>©</span><h3>Registros editoriais</h3><p>Orientação e suporte com direitos autorais, ISBN, ficha catalográfica e demais necessidades.</p></article>
+          <article><span>◩</span><h3>Capa profissional</h3><p>Projeto visual alinhado ao gênero, ao posicionamento, ao público e às plataformas.</p></article>
+          <article><span>▦</span><h3>Projeto gráfico e diagramação</h3><p>Preparação do miolo para leitura confortável e profissional em formato impresso e digital.</p></article>
+          <article><span>⇩</span><h3>Arquivos para publicação</h3><p>Preparação técnica dos formatos necessários para e-book, impressão sob demanda e distribuição.</p></article>
+          <article><span>◎</span><h3>Amazon e UICLAP</h3><p>Configuração e disponibilização do livro em formato digital e físico nas plataformas escolhidas.</p></article>
+          <article><span>↗</span><h3>Posicionamento, divulgação e vendas</h3><p>Plano estruturado para apresentar a obra, formar leitores, organizar lançamento, gerar indicações e buscar retorno.</p></article>
+        </div>
+        <div class="section-cta reveal">
+          <p>Descubra quais dessas etapas o seu projeto realmente precisa.</p>
+          <a class="button button-gold cta-form" href="formulario.html" target="_blank" rel="noopener">Quero uma análise para publicar o meu livro</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div class="container about-grid">
+        <div class="portrait reveal">
+          <img id="portrait-image" src="portrait.webp" alt="Retrato profissional de Saymon César" width="720" height="900" loading="lazy">
+          <div class="portrait-caption">Editor, autor e ghostwriter</div>
+        </div>
+        <div class="reveal">
+          <span class="kicker">Quem é Saymon César?</span>
+          <h2>Experiência editorial e vivência de autor no mesmo projeto</h2>
+          <p>Sou editor-chefe da Editora Fantásticos, atuo há sete anos no mercado editorial, escrevi mais de vinte livros como ghostwriter e sou autor de <strong>A Lenda de Materyalis</strong>.</p>
+          <p>Além de conhecer os processos técnicos de preparação e publicação, eu entendo o que significa desenvolver uma obra, preservar a identidade do autor e pensar na experiência que o texto precisa criar no leitor.</p>
+          <p>Meu objetivo é ajudar autores a publicar livros com qualidade de imersão, capazes de ser lidos, apreciados, indicados e valorizados pelo público-alvo — em escala cada vez maior, com um trabalho editorial que também considere divulgação, vendas e retorno para o autor.</p>
+          <div class="credentials">
+            <div><strong>7 anos</strong><span>de experiência editorial</span></div>
+            <div><strong>20+</strong><span>livros escritos como ghostwriter</span></div>
+            <div><strong>Autor</strong><span>de A Lenda de Materyalis</span></div>
+            <div><strong>Editor-chefe</strong><span>da Editora Fantásticos</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="depoimentos" aria-labelledby="testimonial-title">
+      <div class="container">
+        <div class="heading reveal">
+          <span class="kicker">Depoimentos</span>
+          <h2 id="testimonial-title">O que alguns autores dizem</h2>
+          <p>Experiências de autores que já receberam minha orientação editorial e desenvolveram seus projetos comigo.</p>
+        </div>
+        <div class="testimonial-toolbar" aria-label="Controles do carrossel">
+          <button class="testimonial-arrow testimonial-prev" type="button" aria-label="Depoimento anterior">←</button>
+          <button class="testimonial-arrow testimonial-next" type="button" aria-label="Próximo depoimento">→</button>
+        </div>
+        <div class="testimonial-track" tabindex="0" aria-label="Depoimentos de autores">
+          <article class="testimonial-card">
+            <div class="testimonial-person">
+              <img class="testimonial-avatar" src="avatar-rafael.webp" alt="Foto de Rafael A. F. Silva" width="180" height="180" loading="lazy">
+              <div><h3>Rafael A. F. Silva</h3><p>Autor de Selene</p></div>
+            </div>
+            <blockquote class="testimonial-quote"><div class="testimonial-copy">O Saymon foi bastante importante na criação dos meus livros, pois me deu a orientação necessária para transformar ideias soltas em uma história que, além de tudo, possa ser atraente para os leitores. Sem falar em toda a parte de revisão e na parte burocrática para que esse sonho de escrever e lançar um livro vire realidade, e em todo o suporte posterior com as redes sociais.</div></blockquote>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-person">
+              <img class="testimonial-avatar" src="avatar-thales.webp" alt="Foto de Thalles Waichert" width="180" height="180" loading="lazy">
+              <div><h3>Thalles Waichert</h3><p>Contista do Universo Heróis Fantásticos</p></div>
+            </div>
+            <blockquote class="testimonial-quote"><div class="testimonial-copy">Saymon é um caso raro que equilibra escuta ativa e feedbacks precisos. Analisar o texto de outra pessoa requer uma dose balanceada de empatia e objetividade. É isso que sempre encontro nele. Empatia porque quem escreve coloca muito de si em suas palavras. E objetividade porque ele sabe orientar com técnicas e ferramentas para a história se tornar interessante não só para quem escreve, mas também para outras pessoas. A parceria com ele tem me ajudado a desenvolver o que preciso para usar meu talento. Ele tem a habilidade rara de mostrar minhas falhas e ainda sair com um “muito obrigado!”, porque a edição dele sempre mostra um caminho para seguir e uma possível versão ainda melhor daquele texto.</div></blockquote>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-person">
+              <img class="testimonial-avatar" src="avatar-maiara.webp" alt="Foto de Mayara Oliveira" width="180" height="180" loading="lazy">
+              <div><h3>Mayara Oliveira</h3><p>Autora de O Legado Grayson</p></div>
+            </div>
+            <blockquote class="testimonial-quote"><div class="testimonial-copy">O Saymon faz muito mais do que editar um texto: ele entende a essência da história. Suas sugestões são sempre bem fundamentadas e respeitam a identidade da obra e a voz do autor. Trabalhar com ele tem feito toda a diferença no desenvolvimento do meu livro. Sou muito grata por todo o cuidado e recomendo seu trabalho com total confiança.</div></blockquote>
+          </article>
+        </div>
+        <div class="testimonial-pagination" aria-label="Indicadores do carrossel"></div>
+      </div>
+    </section>
+
+    <section class="analysis-invite section-light" id="formulario">
+      <div class="container analysis-invite-grid reveal">
+        <div>
+          <span class="kicker">Comece pela avaliação</span>
+          <h2>Conte em que estágio está o seu livro e envie o primeiro capítulo.</h2>
+          <p>O formulário foi colocado em uma página própria para manter esta apresentação mais leve. Ele reúne os dados do projeto e envia o documento diretamente para a pasta de avaliações editoriais.</p>
+        </div>
+        <a class="button button-gold cta-form" href="formulario.html" target="_blank" rel="noopener">Quero uma análise para publicar o meu livro</a>
+      </div>
+    </section>
+
+    <section class="faq section-paper" id="perguntas">
+      <div class="container narrow">
+        <div class="heading center reveal"><span class="kicker">Perguntas frequentes</span><h2>O que você precisa saber antes de começar</h2></div>
+        <div class="faq-list reveal">
+          <details><summary>Preciso ter terminado o livro?</summary><p>Não. Posso avaliar um projeto em andamento, um original concluído ou uma obra já publicada. A recomendação muda conforme o estágio e o objetivo.</p></details>
+          <details><summary>A avaliação editorial é uma análise completa do livro?</summary><p>A avaliação inicial considera o formulário e o primeiro capítulo para mapear o estágio da obra e orientar os próximos passos. Uma análise integral, quando necessária, é proposta separadamente.</p></details>
+          <details><summary>Preciso contratar todos os serviços?</summary><p>Não. A avaliação identifica o que já está resolvido e o que ainda precisa ser feito. Você pode contratar etapas específicas ou uma assessoria completa.</p></details>
+          <details><summary>O livro será publicado pela Editora Fantásticos?</summary><p>Este serviço é uma assessoria para publicação independente. A obra é preparada e publicada em nome do autor nas plataformas definidas para o projeto.</p></details>
+          <details><summary>Você atende qualquer gênero?</summary><p>Atendo diferentes gêneros de ficção e não ficção voltados ao público adulto. Literatura infantil não faz parte desta modalidade.</p></details>
+          <details><summary>Como recebo o orçamento?</summary><p>Depois de conhecer o estágio da obra e os serviços necessários, preparo uma proposta coerente com o projeto, sem incluir etapas que já estejam concluídas.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="container final-grid reveal">
+        <div>
+          <span class="kicker">Assessoria editorial em um só lugar</span>
+          <h2>Tudo o que o seu livro precisa para ser publicado, lido e apreciado pelo público.</h2>
+          <p>Avaliação editorial, orientação sobre o estágio da obra, produção, publicação, posicionamento, divulgação e vendas — organizados de acordo com o que o seu projeto realmente necessita.</p>
+        </div>
+        <div class="final-actions">
+          <a class="button button-dark cta-form" href="formulario.html" target="_blank" rel="noopener">Quero uma análise para publicar o meu livro</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="container footer-grid"><a class="brand" href="#inicio"><svg viewBox="0 0 76 66" aria-hidden="true"><path d="M51 13c-4-6-10-9-18-9C22 4 14 11 14 21c0 9 6 14 16 17l9 3c5 2 8 4 8 8 0 6-5 10-13 10-8 0-14-4-18-11"/><path d="M58 12c-6-5-12-7-19-7M56 53c-5 6-12 9-21 9"/></svg><span><strong>Saymon César</strong><small>EDITOR</small></span></a><p>Assessoria editorial para autores de ficção e não ficção. Mais qualidade. Mais leitores. Mais resultados.</p><div class="footer-contact"><a href="mailto:saymoncesar@gmail.com">saymoncesar@gmail.com</a><a href="https://wa.me/5547997955722" target="_blank" rel="noopener">WhatsApp: (47) 99795-5722</a></div></div><div class="container footer-bottom"><span>© <span id="year"></span> Saymon César. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
-  <a class="floating" href="https://wa.me/5547997955722?text=Ol%C3%A1%2C%20Saymon.%20Quero%20conversar%20sobre%20a%20publica%C3%A7%C3%A3o%20do%20meu%20livro." target="_blank" rel="noopener" aria-label="Falar com Saymon César pelo WhatsApp">✆</a>
-  <script src="script.js"></script>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <a class="brand" href="#inicio">
+        <svg viewBox="0 0 76 66" aria-hidden="true"><path d="M51 13c-4-6-10-9-18-9C22 4 14 11 14 21c0 9 6 14 16 17l9 3c5 2 8 4 8 8 0 6-5 10-13 10-8 0-14-4-18-11"/><path d="M58 12c-6-5-12-7-19-7M56 53c-5 6-12 9-21 9"/></svg>
+        <span><strong>Saymon César</strong><small>EDITOR</small></span>
+      </a>
+      <p>Assessoria editorial para autores de ficção e não ficção. Mais qualidade. Mais leitores. Mais resultados.</p>
+      <div class="footer-contact"><a href="mailto:saymoncesar@gmail.com">saymoncesar@gmail.com</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> Saymon César. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5547997955722?text=Ol%C3%A1%2C%20Saymon.%20Quero%20conversar%20sobre%20a%20publica%C3%A7%C3%A3o%20do%20meu%20livro." target="_blank" rel="noopener" aria-label="Falar com Saymon César pelo WhatsApp">
+    <span class="whatsapp-status"><i></i><strong>Online</strong><small>Fale comigo</small></span>
+    <span class="whatsapp-icon" aria-hidden="true">✆</span>
+  </a>
+
+  <script src="script.js?v=20260804a"></script>
 </body>
 </html>
