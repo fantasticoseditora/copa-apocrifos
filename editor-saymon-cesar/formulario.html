@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0c0a">
+  <meta name="robots" content="noindex,follow">
+  <title>Avaliação editorial — Saymon César</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="formulario.css?v=20260804a">
+</head>
+<body class="form-page">
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="./" aria-label="Voltar ao site do Editor Saymon César">
+        <svg viewBox="0 0 76 66" aria-hidden="true"><path d="M51 13c-4-6-10-9-18-9C22 4 14 11 14 21c0 9 6 14 16 17l9 3c5 2 8 4 8 8 0 6-5 10-13 10-8 0-14-4-18-11"/><path d="M58 12c-6-5-12-7-19-7M56 53c-5 6-12 9-21 9"/></svg>
+        <span><strong>Saymon César</strong><small>EDITOR</small></span>
+      </a>
+      <a class="back-link" href="./">← Voltar ao site</a>
+    </div>
+  </header>
+
+  <main class="form-page-main">
+    <section class="form-page-intro">
+      <div class="container form-page-grid">
+        <div>
+          <span class="kicker">Avaliação editorial inicial</span>
+          <h1>Quero uma análise para publicar o meu livro</h1>
+          <p>Preencha as informações sobre o projeto e anexe o primeiro capítulo ou o original. Os dados e o documento serão enviados diretamente para uma pasta organizada de avaliações editoriais.</p>
+          <ul class="form-benefits">
+            <li>Mapeamento do estágio atual da obra.</li>
+            <li>Leitura editorial do primeiro capítulo.</li>
+            <li>Orientação sobre os próximos passos para publicação.</li>
+          </ul>
+        </div>
+
+        <form class="lead-form" id="editorial-form" novalidate>
+          <fieldset class="form-block">
+            <legend>Seus dados de contato</legend>
+            <span class="helper">Essas informações serão usadas apenas para retornar a sua solicitação.</span>
+            <div class="row">
+              <label>Seu nome<input name="nome" type="text" autocomplete="name" required></label>
+              <label>WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" placeholder="(DDD) número" required></label>
+            </div>
+            <div class="row">
+              <label>E-mail<input name="email" type="email" autocomplete="email" required></label>
+              <label>Título da obra<input name="titulo" type="text" required></label>
+            </div>
+          </fieldset>
+
+          <div class="section-divider" aria-hidden="true"></div>
+
+          <fieldset class="form-block">
+            <legend>O seu livro é de ficção ou não ficção?</legend>
+            <div class="choice-grid">
+              <label class="choice-card"><input name="tipo" type="radio" value="Ficção" required><span>Ficção</span></label>
+              <label class="choice-card"><input name="tipo" type="radio" value="Não ficção" required><span>Não ficção</span></label>
+            </div>
+          </fieldset>
+
+          <div class="row">
+            <label>Gênero ou área da obra<input name="genero" type="text" placeholder="Ex.: fantasia, romance, biografia, negócios..." required></label>
+            <label>Em que estágio o livro está?
+              <select name="estagio" required>
+                <option value="">Selecione</option>
+                <option>Em andamento</option>
+                <option>Original concluído, ainda não publicado</option>
+                <option>Em produção editorial</option>
+                <option>Pronto para publicação</option>
+                <option>Já publicado e precisa de melhorias</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="form-block" id="services-block">
+            <legend>Quais destes serviços ou etapas o seu livro já possui?</legend>
+            <span class="helper">Marque todos os itens já concluídos ou contratados.</span>
+            <div class="choice-grid services-list">
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Registro de direitos autorais"><span>Registro de direitos autorais</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="ISBN"><span>ISBN</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Ficha catalográfica"><span>Ficha catalográfica</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Código de barras"><span>Código de barras</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Análise crítica editorial"><span>Análise crítica editorial</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Copydesk ou preparação de texto"><span>Copydesk ou preparação de texto</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Revisão ortográfica e gramatical"><span>Revisão ortográfica e gramatical</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Capa"><span>Capa</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Diagramação"><span>Diagramação</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Planejamento de marketing"><span>Planejamento de marketing</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Publicação nas plataformas"><span>Publicação nas plataformas</span></label>
+              <label class="choice-card"><input name="servicos" type="checkbox" value="Impressão ou logística de exemplares"><span>Impressão ou logística de exemplares</span></label>
+              <label class="choice-card full-choice"><input id="no-services" name="servicos" type="checkbox" value="Nenhum desses itens"><span>Nenhum desses itens até o momento</span></label>
+            </div>
+            <p class="form-error" id="services-error" role="alert">Marque pelo menos uma opção para indicar o estágio do projeto.</p>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Qual é o seu principal objetivo na literatura?</legend>
+            <div class="choice-grid">
+              <label class="choice-card"><input name="objetivo_literario" type="radio" value="Realizar o sonho de publicar o livro" required><span>Realizar o sonho de publicar o meu livro</span></label>
+              <label class="choice-card"><input name="objetivo_literario" type="radio" value="Publicar e alcançar uma quantidade maior de leitores" required><span>Publicar e alcançar uma quantidade maior de leitores</span></label>
+              <label class="choice-card full-choice"><input name="objetivo_literario" type="radio" value="Melhorar um livro já publicado para ampliar leitores e vendas" required><span>Melhorar um livro já publicado para ampliar leitores e vendas</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Como você considera publicar o livro?</legend>
+            <div class="choice-grid">
+              <label class="choice-card"><input name="modelo_publicacao" type="radio" value="Publicação independente" required><span>De forma independente</span></label>
+              <label class="choice-card"><input name="modelo_publicacao" type="radio" value="Publicação por editora" required><span>Por uma editora</span></label>
+              <label class="choice-card full-choice"><input name="modelo_publicacao" type="radio" value="Aberto às duas formas" required><span>Posso considerar as duas formas</span></label>
+            </div>
+          </fieldset>
+
+          <label>Há alguma informação importante sobre a obra ou sobre o que você procura?
+            <textarea name="observacoes" rows="4" placeholder="Conte brevemente o que deseja resolver, melhorar ou alcançar com o projeto."></textarea>
+          </label>
+
+          <fieldset class="form-block upload-block">
+            <legend>Envie o primeiro capítulo ou o original</legend>
+            <span class="helper">Formatos aceitos: PDF, DOC, DOCX, ODT e RTF. Tamanho máximo: 10 MB.</span>
+            <label class="file-picker" for="editorial-file">
+              <span class="file-picker-button">Selecionar documento</span>
+              <span class="file-picker-text" id="file-picker-text">Nenhum arquivo selecionado</span>
+              <input id="editorial-file" name="arquivo" type="file" accept=".pdf,.doc,.docx,.odt,.rtf,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.oasis.opendocument.text,application/rtf,text/rtf" required>
+            </label>
+          </fieldset>
+
+          <label class="editorial-honeypot" aria-hidden="true">Não preencha este campo<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          <label class="consent"><input type="checkbox" required><span>Autorizo o contato para tratar desta solicitação editorial.</span></label>
+
+          <button class="button button-gold submit-form" type="submit">Enviar obra para avaliação</button>
+          <p class="submission-status" id="submission-status" role="status" aria-live="polite"></p>
+          <p class="form-note">Não feche a página enquanto o documento estiver sendo enviado.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer form-footer">
+    <div class="container footer-bottom"><span>© <span id="year"></span> Saymon César.</span><a href="./">Voltar ao site</a></div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5547997955722?text=Ol%C3%A1%2C%20Saymon.%20Quero%20conversar%20sobre%20a%20publica%C3%A7%C3%A3o%20do%20meu%20livro." target="_blank" rel="noopener" aria-label="Falar com Saymon César pelo WhatsApp">
+    <span class="whatsapp-status"><i></i><strong>Online</strong><small>Fale comigo</small></span>
+    <span class="whatsapp-icon" aria-hidden="true">✆</span>
+  </a>
+
+  <script src="form-config.js?v=20260804a"></script>
+  <script src="formulario.js?v=20260804a"></script>
+</body>
+</html>
