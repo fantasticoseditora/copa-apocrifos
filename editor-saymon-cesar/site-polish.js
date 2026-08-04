@@ -25,6 +25,7 @@
     .hero-editorial-frame {
       position: relative;
       width: 100%;
+      margin: 0;
       overflow: hidden;
       border: 1px solid rgba(216,181,106,.34);
       border-radius: 24px;
