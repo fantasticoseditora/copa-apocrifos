@@ -4,3 +4,5 @@ window.EDITORIAL_FORM_CONFIG = Object.freeze({
   maxFileSizeMb: 10,
   acceptedExtensions: ['pdf', 'doc', 'docx', 'odt', 'rtf']
 });
+
+import('./site-polish.js?v=20260803e');
