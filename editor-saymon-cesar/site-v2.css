@@ -16,6 +16,8 @@
 }
 .hero-editorial-frame {
   position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(216,181,106,.34);
@@ -31,10 +33,12 @@
   background: linear-gradient(135deg,rgba(216,181,106,.13),transparent 38%,rgba(0,0,0,.16));
 }
 .hero-editorial-image {
+  display: block;
   width: 100%;
-  aspect-ratio: 4/3;
+  height: 100%;
   object-fit: cover;
   object-position: center;
+  transition: opacity .25s ease;
 }
 .cta-form {
   max-width: 430px;
@@ -305,6 +309,15 @@
   }
   .testimonial-card { flex-basis: 100%; padding: 24px; }
 }
+@media(max-width:700px){
+  .hero-editorial-frame {
+    width: min(100%, 560px);
+    aspect-ratio: 4/5;
+  }
+  .hero-editorial-image {
+    object-position: center 56%;
+  }
+}
 @media(max-width:620px){
   .hero h1 {
     font-size: clamp(3.35rem,17vw,4.85rem);
@@ -312,7 +325,6 @@
     letter-spacing: -.035em;
   }
   .hero h1 em { margin-top: .14em; }
-  .hero-editorial-image { aspect-ratio: 16/11; }
   .actions .cta-form { width: 100%; }
   .section-cta { flex-direction: column; align-items: stretch; text-align: center; }
   .section-cta .button { width: 100%; }
