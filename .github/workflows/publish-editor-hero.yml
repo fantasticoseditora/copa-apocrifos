@@ -1,0 +1,122 @@
+name: Publicar imagem editorial profissional
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/publish-editor-hero.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Montar imagem e corrigir primeira dobra
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          cat editor-saymon-cesar/.hero-build/mobile-*.txt > /tmp/hero-editorial.b64
+          base64 --decode /tmp/hero-editorial.b64 > editor-saymon-cesar/hero-editorial-photo.webp
+
+          test -s editor-saymon-cesar/hero-editorial-photo.webp
+          test "$(head -c 4 editor-saymon-cesar/hero-editorial-photo.webp)" = "RIFF"
+
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('editor-saymon-cesar')
+
+          index = root / 'index.html'
+          html = index.read_text(encoding='utf-8')
+
+          hero = '''        <figure class="hero-editorial-frame reveal">
+          <img class="hero-editorial-image" src="hero-editorial-photo.webp?v=20260804h" alt="Livro aberto com caneta-tinteiro em uma biblioteca" width="800" height="1000" fetchpriority="high" decoding="async">
+        </figure>'''
+
+          html, count = re.subn(
+              r'\s*<figure class="hero-editorial-frame reveal">.*?</figure>',
+              '\n' + hero,
+              html,
+              count=1,
+              flags=re.S,
+          )
+          if count != 1:
+              raise SystemExit('Não foi possível localizar o quadro da imagem no index.html')
+
+          html = re.sub(
+              r'site-v2\.css(?:\?v=[^"\']+)?',
+              'site-v2.css?v=20260804h',
+              html,
+              count=1,
+          )
+          html = re.sub(
+              r'script\.js(?:\?v=[^"\']+)?',
+              'script.js?v=20260804h',
+              html,
+              count=1,
+          )
+          index.write_text(html, encoding='utf-8')
+
+          css_path = root / 'site-v2.css'
+          css = css_path.read_text(encoding='utf-8')
+          marker = '/* hero-fotografico-20260804h */'
+          if marker not in css:
+              css += '''
+
+/* hero-fotografico-20260804h */
+.hero-editorial-frame {
+  background: #0b0907 !important;
+}
+.hero-editorial-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+@media (max-width: 700px) {
+  .hero-editorial-frame {
+    aspect-ratio: 4 / 5 !important;
+  }
+  .hero-editorial-image {
+    object-position: center center !important;
+  }
+}
+'''
+          css_path.write_text(css, encoding='utf-8')
+
+          script_path = root / 'script.js'
+          script = script_path.read_text(encoding='utf-8')
+          script = re.sub(
+              r"\s*import\('\./hero-image\.js\?v=[^']+'\)\.catch\(\(\) => \{\}\);\s*",
+              '\n',
+              script,
+              count=1,
+          )
+          script_path.write_text(script, encoding='utf-8')
+          PY
+
+          rm -f editor-saymon-cesar/hero-image.js
+          rm -rf editor-saymon-cesar/.hero-build
+          rm -f .github/workflows/publish-editor-hero.yml
+
+      - name: Publicar alterações
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publica fotografia editorial profissional no site"
+          git push
