@@ -117,7 +117,7 @@ Cristiano Alves da Silva, votou por dois perfis diferentes. Contos da Terra Lege
 
 # Atualiza tabela do Grupo F a partir do estado corrente
 rows = {tr.get('data-book'): tr for tr in grupo_f.select('#standings-F tbody tr')}
-for key in ('terra-legendaria','alimentando-pecado'):
+for key in ('contos-terra','alimentando-o-pecado'):
     if key not in rows:
         raise RuntimeError(f'Linha {key} não localizada na tabela do Grupo F')
 
@@ -131,13 +131,13 @@ def write_row(tr, st):
     saldo = st['vf'] - st['vs']
     tr.select_one('.sv').string = f'{saldo:+d}' if saldo else '0'
 
-contos = read_row(rows['terra-legendaria'])
+contos = read_row(rows['contos-terra'])
 contos['pj'] += 1; contos['d'] += 1; contos['vf'] += 10; contos['vs'] += 19
-write_row(rows['terra-legendaria'], contos)
+write_row(rows['contos-terra'], contos)
 
-pecado = read_row(rows['alimentando-pecado'])
+pecado = read_row(rows['alimentando-o-pecado'])
 pecado['pts'] += 3; pecado['pj'] += 1; pecado['v'] += 1; pecado['vf'] += 19; pecado['vs'] += 10
-write_row(rows['alimentando-pecado'], pecado)
+write_row(rows['alimentando-o-pecado'], pecado)
 
 # Reordena tabela: pontos, saldo, votos a favor
 body_f = grupo_f.select_one('#standings-F tbody')
